@@ -1,18 +1,31 @@
 defmodule Binanxir do
-  @moduledoc """
-  Documentation for `Binanxir`.
-  """
+  [applications: [:httpoison]]
 
-  @doc """
-  Hello world.
+  _base_url = "https://api.binance.com"
+  _futures_url = "https://fapi.binance.com"
 
-  ## Examples
-
-      iex> Binanxir.hello()
-      :world
-
-  """
   def hello do
     :world
+  end
+
+  def ping do
+    base_url = "https://api.binance.com"
+
+    "#{!base_url}/api/v3/ping"
+    |>HTTPoison.get!
+  end
+
+  def time do
+    base_url = "https://api.binance.com"
+
+    "#{base_url}/api/v3/time"
+    |>HTTPoison.get!
+  end
+
+  def exchange_info do
+    base_url = "https://api.binance.com"
+
+    "#{base_url}/api/v3/exchangeInfo"
+    |>HTTPoison.get!
   end
 end
